@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
 
 import '../data/portfolio_data.dart';
 import '../theme.dart';
@@ -219,7 +220,21 @@ class ProjectsSection extends StatelessWidget {
                 'Also contributed to:',
                 style: t.bodyLarge?.copyWith(color: AppColors.muted),
               ),
-              for (final c in otherContributions) TagChip(c),
+              for (final (name, url) in otherContributions)
+                url == null
+                    ? TagChip(name)
+                    : Link(
+                      uri: Uri.parse(url),
+                      target: LinkTarget.blank,
+                      builder:
+                          (context, followLink) => MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              onTap: followLink,
+                              child: TagChip(name),
+                            ),
+                          ),
+                    ),
             ],
           ),
         ],

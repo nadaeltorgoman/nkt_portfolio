@@ -2,14 +2,11 @@ class Links {
   static const github = 'https://github.com/nadaeltorgoman';
   static const linkedin = 'https://www.linkedin.com/in/nada-eltorgoman';
   static const email = 'nada.khalid.eltorgoman@gmail.com';
-  static const phone ='+201091084009';
+  static const phone = '+201091084009';
   static const phoneDisplay = '+20 109 108 4009';
   static const whatsapp = 'https://wa.me/201091084009';
   static const cv =
       'https://drive.google.com/file/d/1tQMi1QxBBEI2DEM9_GWoXpowAb5ZuqkV/view?usp=sharing';
-
-  static String playSearch(String app) =>
-      'https://play.google.com/store/search?q=${Uri.encodeComponent(app)}&c=apps';
 }
 
 class Profile {
@@ -123,8 +120,6 @@ class Project {
   });
 }
 
-// Replace the Play Store search links / GitHub profile link with the exact
-// app or repo URLs when you have them.
 final projects = [
   const Project(
     name: 'Inlink',
@@ -134,6 +129,10 @@ final projects = [
         'Enterprise system that organizes factory workflows, manages sales/field reps and their tasks, '
         'handles sales & purchase invoicing, returns, payments, and customer accounts.',
     tags: ['Flutter', 'Bloc/Cubit', 'REST API', 'GPS'],
+    link: ProjectLink(
+      ProjectLinkType.play,
+      'https://play.google.com/store/apps/details?id=com.inlink.app',
+    ),
     featured: true,
   ),
   const Project(
@@ -144,7 +143,10 @@ final projects = [
         'Converted portsaidsouq.com into two Flutter apps — a client-facing app and a vendor '
         'management app — using the Prime Web framework with a Laravel admin panel.',
     tags: ['Flutter', 'Laravel', 'E-Commerce'],
-    link: ProjectLink(ProjectLinkType.web, 'https://portsaidsouq.com'),
+    link: ProjectLink(
+      ProjectLinkType.play,
+      'https://play.google.com/store/apps/details?id=com.portsaidsouq.app',
+    ),
     featured: true,
   ),
   Project(
@@ -155,7 +157,10 @@ final projects = [
         'Attendance tracking, leave management, and overtime monitoring, improving task visibility '
         'and employee workflow management.',
     tags: const ['Flutter', 'Bloc', 'REST API'],
-    link: ProjectLink(ProjectLinkType.play, Links.playSearch('Tecfy Attendance')),
+    link: ProjectLink(
+      ProjectLinkType.play,
+      'https://play.google.com/store/apps/details?id=co.tecfy.emp',
+    ),
   ),
   Project(
     name: 'SUMO',
@@ -165,7 +170,10 @@ final projects = [
         'Task assignment, tracking, prioritization, and real-time updates, plus a caravan '
         'management system for booking, key tracking, and room status.',
     tags: const ['Flutter', 'Real-time', 'REST API'],
-    link: ProjectLink(ProjectLinkType.play, Links.playSearch('SUMO')),
+    link: ProjectLink(
+      ProjectLinkType.play,
+      'https://play.google.com/store/apps/details?id=co.tecfy.task_management',
+    ),
   ),
   Project(
     name: 'Tecfy Ticket',
@@ -174,7 +182,10 @@ final projects = [
     description:
         'Internal communication features and a campaigns system for targeted messaging and user segmentation.',
     tags: const ['Flutter', 'Notifications'],
-    link: ProjectLink(ProjectLinkType.play, Links.playSearch('Tecfy Ticket')),
+    link: ProjectLink(
+      ProjectLinkType.play,
+      'https://play.google.com/store/apps/details?id=co.tecfy.ticket',
+    ),
   ),
   Project(
     name: 'CarSideAds',
@@ -183,7 +194,10 @@ final projects = [
     description:
         'Driver onboarding and verification flows, and a location-based advertisement publishing system.',
     tags: const ['Flutter', 'Google Maps', 'Location'],
-    link: ProjectLink(ProjectLinkType.play, Links.playSearch('CarSideAds')),
+    link: ProjectLink(
+      ProjectLinkType.play,
+      'https://play.google.com/store/apps/details?id=com.carsideads.driver',
+    ),
   ),
   const Project(
     name: 'Forme',
@@ -193,7 +207,10 @@ final projects = [
         'Connects users with trainers, clubs, and courses. Integrated Google Maps and Paymob payments, '
         'with a Django backend and admin dashboard.',
     tags: ['Flutter', 'Django', 'Paymob', 'Maps'],
-    link: ProjectLink(ProjectLinkType.github, Links.github),
+    link: ProjectLink(
+      ProjectLinkType.github,
+      'https://github.com/nadaeltorgoman/Forme',
+    ),
   ),
   const Project(
     name: 'Food Delivery',
@@ -202,19 +219,33 @@ final projects = [
     description:
         'Flutter app with a Laravel backend: REST APIs, Firebase notifications, shopping cart, PayPal, and Google Maps.',
     tags: ['Flutter', 'Laravel', 'Firebase', 'PayPal'],
-    link: ProjectLink(ProjectLinkType.github, Links.github),
+    link: ProjectLink(
+      ProjectLinkType.github,
+      'https://github.com/nadaeltorgoman/Food_Delivery',
+    ),
   ),
   const Project(
     name: 'Travel App',
     category: 'Country Exploration',
     period: 'Jul – Sep 2023',
-    description: 'Maps and offline mode support, with a Laravel backend and authentication.',
+    description:
+        'Maps and offline mode support, with a Laravel backend and authentication.',
     tags: ['Flutter', 'Offline', 'Laravel'],
-    link: ProjectLink(ProjectLinkType.github, Links.github),
+    link: ProjectLink(
+      ProjectLinkType.github,
+      'https://github.com/nadaeltorgoman/Travel_app',
+    ),
   ),
 ];
 
-const otherContributions = ['Bana', 'ResilienzFitness', 'KACST'];
+const otherContributions = <(String, String?)>[
+  ('Bana', 'https://play.google.com/store/apps/details?id=sa.bana.android'),
+  ('ResilienzFitness', null),
+  (
+    'KACST',
+    'https://play.google.com/store/apps/details?id=sa.edu.kasct.emp.portal',
+  ),
+];
 
 class SkillGroup {
   final String title;
@@ -223,10 +254,37 @@ class SkillGroup {
 }
 
 const skillGroups = [
-  SkillGroup('Mobile', ['Flutter', 'Dart', 'Java', 'Kotlin', 'Bloc/Cubit', 'Hive', 'MVC/MVVM', 'Clean Architecture']),
-  SkillGroup('Backend & APIs', ['PHP', 'Laravel', 'Firebase', 'REST APIs', 'Admin Panels']),
-  SkillGroup('Integrations', ['Google Maps', 'Paymob', 'PayPal', 'Push Notifications']),
-  SkillGroup('Tools', ['Git & GitHub', 'Figma', 'Jira', 'Postman', 'Android Studio', 'VS Code']),
+  SkillGroup('Mobile', [
+    'Flutter',
+    'Dart',
+    'Java',
+    'Kotlin',
+    'Bloc/Cubit',
+    'Hive',
+    'MVC/MVVM',
+    'Clean Architecture',
+  ]),
+  SkillGroup('Backend & APIs', [
+    'PHP',
+    'Laravel',
+    'Firebase',
+    'REST APIs',
+    'Admin Panels',
+  ]),
+  SkillGroup('Integrations', [
+    'Google Maps',
+    'Paymob',
+    'PayPal',
+    'Push Notifications',
+  ]),
+  SkillGroup('Tools', [
+    'Git & GitHub',
+    'Figma',
+    'Jira',
+    'Postman',
+    'Android Studio',
+    'VS Code',
+  ]),
 ];
 
 class Education {
