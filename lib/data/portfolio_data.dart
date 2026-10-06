@@ -60,6 +60,7 @@ const experiences = [
       'Maintain and enhance the Inlink Flutter app — an enterprise system for factory operations, sales-rep task management, and customer relationships.',
       'Build features for sales & purchase invoicing, returns, payments, warehouse requests, attendance verification, GPS validation, and device authentication.',
       'Converted the Port Said Souq e-commerce platform into client and vendor Flutter apps using the Prime Web framework.',
+      'Built Inlink Restaurant — a Flutter Web QR ordering site where diners browse the menu and place full invoices that reach the cashier by table number.',
     ],
   ),
   Experience(
@@ -136,9 +137,23 @@ final projects = [
     featured: true,
   ),
   const Project(
+    name: 'Inlink Restaurant',
+    category: 'QR Menu & Table Ordering',
+    period: 'Sep 2026',
+    description:
+        'Flutter Web ordering site opened from a table QR code: customers browse the menu, build '
+        'their full invoice, and the order reaches the cashier tagged with the table number.',
+    tags: ['Flutter Web', 'Laravel', 'SQL', 'REST API'],
+    link: ProjectLink(
+      ProjectLinkType.web,
+      'https://insysresapp.inlink-eg.com/?UserName=admin&Pass=1234&store=1&Treasury=2&CusID=11&BillNoteID=5&Note=T1&db=hTbQAakVQQ',
+    ),
+    featured: true,
+  ),
+  const Project(
     name: 'Port Said Souq',
     category: 'E-Commerce Client & Vendor Apps',
-    period: '2026 – Present',
+    period: '2026',
     description:
         'Converted portsaidsouq.com into two Flutter apps — a client-facing app and a vendor '
         'management app — using the Prime Web framework with a Laravel admin panel.',
